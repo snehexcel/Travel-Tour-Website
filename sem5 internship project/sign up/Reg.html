@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css link -->
+    <link rel="stylesheet" href="Reg&Login.css">
+    <!-- google font link -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto%3Awght%40300&display=swap"> 
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+
+
+</head>
+<body>
+  <a href="http://127.0.0.1:5501/index.html">
+  
+  </a>
+    <div class="signup-box">
+        <h1>Sign up</h1>
+        <h4>Enter valid details to create an account</h4>
+
+        <form>
+            <input type="text" id="First_Name" placeholder="First Name"/>
+
+
+            <input type="text" id="Last_Name" placeholder="Last Name"/>
+            <input type="email" id="email" placeholder="E-mail"/>
+
+
+            <input type="password" id= "password" placeholder="Password"/>
+            <input type="password" id="confirm password" placeholder="Confirm Password"/>
+
+            <input type="button" id="signUp" value="Sign up"/>
+        </form>
+
+        <p>By proceeding, you agree to our  <br>
+        <a href="#">Privacy Policy</a> 
+        <a href=""></a> and 
+        <a href="#">Terms  Condition</a>
+        </p>  
+        
+    </div>
+    <p class="para-p2">
+        Already have an Account? <a href="Login.html">Login here</a> 
+    </p>     
+</body>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAFsLCl0t4N9OGZCnPhSCHxklwvIAHgk9c",
+      authDomain: "wl-auth.firebaseapp.com",
+      databaseURL: "https://wl-auth-default-rtdb.firebaseio.com",
+      projectId: "wl-auth",
+      storageBucket: "wl-auth.appspot.com",
+      messagingSenderId: "992549679451",
+      appId: "1:992549679451:web:195378cdaf8ac8f374ea7e"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    const signUp= document.getElementById("signUp");
+
+ signUp.onclick = function() {
+
+
+
+  var email = document.getElementById('email').value;
+   var password = document.getElementById('password').value;
+   var First_Name = document.getElementById('First_Name').value;
+   var Last_Name = document.getElementById('Last_Name').value;
+
+  //  use of regex
+
+   let emailValidated = false;
+    const re = /\S+@\S+\.\S+/;   
+    emailValidated = re.test(email);
+
+
+
+if (emailValidated) {
+    console.log("Valid email address");
+
+
+        createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    
+
+    // storing data of users in realtime DB
+
+    set(ref(database, 'names/'+ user.uid),{
+      First_Name: First_Name,
+      Last_Name:  Last_Name,
+      email: email,
+      password: password
+    })
+
+    alert('User Created, Go Back to Login Page')
+   
+  })
+    .catch((error) => {
+     const errorCode = error.code;
+     const errorMessage = error.message;
+ 
+     alert('error, check if you are already registered');
+    
+   });
+  }else {
+    alert("Invalid email address");
+}
+
+};
+    </script>
+</html>

@@ -1,0 +1,114 @@
+body{
+    background-color: #989898;
+    font-family: "Roboto", sans-serif;
+}
+.signup-box{
+    width: 430px;
+    height: 570px;
+    margin: auto;
+    background-color: white;
+    border-radius: 40px;
+    margin-top: 30px;  
+}
+.signup-box h1{
+    color: #3b79c9;
+}
+.login-box{
+    width: 430px;
+    height: 380px;
+    margin: auto;
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 9.4em;
+}
+
+h1{
+    text-align: center;
+    padding-top: 17px;
+    font-weight: bolder;
+    font-size: 40;
+    color: #3b79c9;
+}
+h4{
+    text-align: center;
+}
+form{
+    width: 330px;
+    margin-left: 42px; 
+}
+form input{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border: 1px solid #3b79c9;
+    border-radius: 20px;
+    outline: none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+input[type="button"]
+{
+    width: 158.65px;
+    height: 51.2px;
+    margin-top: 18px;
+    border: none;
+    background-color: #3b79c9;
+    color: w hite;
+    font-size: 20px;
+    color: white;
+    font-weight: bolder;
+    margin-left: 90px;
+    transition: 0.8s;
+  
+}
+
+p{
+    text-align: center;
+    padding-top: 1px;
+    font-size: 18px;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+
+.para-2{
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+.para-2 a:hover{
+    color:#3b79c9;
+}
+.para-2 a{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+.para-p2{
+    color: white;
+}
+.para-p2 a{
+    color: white;
+    font-weight: bold;
+
+}
+.para-p2 a:hover{
+    color: #3b79c9;
+    
+}
+.signup-box p a{
+    text-decoration: none;
+}
+.login-box p a{
+    text-decoration: none;
+    color: #3b79c9;
+    
+}
+.login-box p a:hover{
+    color: hsl(248, 66%, 61%);
+}
+input[type="button"]:hover{
+ color: #989898;
+ cursor: pointer;
+ 
+}
